@@ -31,16 +31,16 @@ const server = http.createServer((req, res) => {
   }
   else if (page == '/api') {
     if('student' in params){
-      if(params['student']== 'leon'){
+      if(params['student']== 'andrew'){
         res.writeHead(200, {'Content-Type': 'application/json'});
         const objToJson = {
-          name: "leon",
-          status: "Boss Man",
-          currentOccupation: "Baller"
+          name: "andrew",
+          status: "awesome",
+          currentOccupation: "paper pusher"
         }
         res.end(JSON.stringify(objToJson));
-      }//student = leon
-      else if(params['student'] != 'leon'){
+      }
+      else if(params['student'] != 'andrew'){
         res.writeHead(200, {'Content-Type': 'application/json'});
         const objToJson = {
           name: "unknown",
@@ -48,9 +48,9 @@ const server = http.createServer((req, res) => {
           currentOccupation: "unknown"
         }
         res.end(JSON.stringify(objToJson));
-      }//student != leon
-    }//student if
-  }//else if
+      }
+    }
+  }
   else if (page == '/css/style.css'){
     fs.readFile('css/style.css', function(err, data) {
       res.write(data);
